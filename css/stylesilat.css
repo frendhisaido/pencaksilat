@@ -1,0 +1,260 @@
+/* CSS Document */
+
+html, body {
+	height: 100%;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	background: #3A3A3A url(http://localhost/pencaksilat/image/bg1.jpg) repeat-x left top;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #000000;
+}
+
+h1, h2, h3 {
+	margin-top: 0px;
+}
+
+p, ol, ul {
+	margin-top: 0px;
+}
+
+p {
+	line-height: 170%;
+}
+
+ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+strong {
+}
+
+a {
+	color: #710708;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a img {
+	border: none;
+}
+
+img.border {
+}
+
+img.alignleft {
+	float: left;
+	padding-right: 25px;
+}
+
+img.alignright {
+	float: right;
+}
+
+img.aligncenter {
+	margin: 0px auto;
+}
+
+hr {
+	display: none;
+}
+
+/** WRAPPER */
+
+#wrapper {
+}
+
+.container {
+	width: 980px;
+	margin: 0px auto;
+}
+
+.clearfix {
+	clear: both;
+}
+
+/** HEADER */
+
+#header {
+	width: 960px;
+	height: 292px;
+	margin: 0px auto;
+	background: url(http://localhost/pencaksilat/image/header.png) no-repeat left top;
+}
+
+/** LOGO */
+
+#logo {
+	width: 960px;
+	height: 80px;
+	margin: 0px auto;
+	text-transform: uppercase;
+}
+
+#logo h1 a {
+	display: block;
+	margin: 0px;
+	padding: 10px 0px 0px 0px;
+	font-size: 36px;
+}
+
+#logo p {
+	margin: -28px 0px 0px 5px;
+	padding: 0px;
+	font-size: 12px;
+}
+
+#logo a {
+	text-decoration: none;
+}
+
+/** MENU */
+
+#menu {
+	width: 960px;
+	height: 48px;
+	margin: 0px auto;
+	background: url(http://localhost/pencaksilat/image/nav.png) no-repeat left top;
+}
+
+#menu ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	line-height: normal;
+}
+
+#menu li {
+	float: left;
+}
+
+#menu a {
+	display: block;
+	height: 32px;
+	margin: 0px 0px 0px 0px;
+	padding: 16px 25px 0px 25px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 11px;
+	font-weight: bold;
+	color: #000000;
+}
+
+#menu a:hover {
+	background: #000000;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+#menu .first a {
+	background: #000000 url(images/img04.jpg) no-repeat left top;
+	color: #FFFFFF;
+}
+
+/** PAGE */
+
+#page {
+	width: 960px;
+	margin: 0px auto;
+	padding: 30px 0px 10px 0px;
+}
+
+/** CONTENT */
+
+#content {
+	float: right;
+	width: 610px;
+	padding-left: 30px;
+	background: url(images/img06.jpg) repeat-y left top;
+}
+
+/** SIDEBAR */
+
+#sidebar {
+	float: left;
+	width: 300px;
+}
+
+#sidebar h2 {
+	padding: 0px 0px 10px 0px;
+	text-transform: uppercase;
+	font-size: 18px;
+}
+
+#sidebar li ul {
+	margin: 0px 0px 0px 20px;
+	padding: 0px 0px 20px 0px;
+}
+
+#sidebar li li {
+	padding: 0px 0px 5px 0px;
+}
+
+#sidebar p {
+	margin: 0px 0px 20px 20px;
+}
+
+/** POST */
+
+.post {
+	margin-bottom: 20px;
+	background: url(images/img05.jpg) repeat-x left bottom;
+}
+
+.post .title {
+	margin: 0px;
+	padding-bottom: 10px;
+	letter-spacing: -1px;
+}
+
+.post .title a {
+	border: none;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 22px;
+	color: #000000;
+}
+
+.post .meta {
+	display: block;
+	margin-top: -15px;
+	padding: 5px 0px;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-style: italic;
+}
+
+.post .meta a {
+}
+
+.post .entry {
+	text-align: justify;
+	padding: 10px 0px 10px 0px;
+}
+
+/** FOOTER */
+
+#footer {
+	width: 960px;
+	margin: 0px auto;
+	background: url(images/img05.jpg) repeat-x left top;
+}
+
+#footer p {
+	margin: 0px;
+	padding: 20px 0px 20px 0px;
+	text-align: center;
+	font-size: 11px;
+}
+
+#footer a {
+	color: #000000;
+}
