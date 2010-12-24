@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Login!</title>
+<title>Pencak Silat.com | User panel.</title>
 
 <style type="text/css">
 
@@ -42,26 +42,7 @@ code {
 </style>
 </head>
 <body>
-<?php $username= $this->session->userdata('username');?>
-<h2> <b> Halaman login pencak silat</b> <h2>
-Halo <?php echo $username;?> ! :)
-<form action="<?=base_url();?>login/proseslogin" method="post">
-<table border="0" align="center">
-<tr>
-<td> Username</td>
-<td> <input name="username" type="text"> </td>
-</tr>
-<tr>
-<td> Password</td>
-<td> <input name="password" type="password"> </td>
-</tr>
-<tr>
-<td> &nbsp; </td>
-<td> <input name="submit" type="submit" value="login"> </td>
-</tr>
-</table>
-Belum punya akun? <?php echo anchor('login/register','Daftar sekarang!');?>
-</form>
+
 
 </body>
 </html>
