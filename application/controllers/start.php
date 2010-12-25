@@ -15,4 +15,4 @@ class Start extends Controller {
 }
 
 /* End of file start.php */
-/* Location: ./system/application/controllers/start.php */
+/* Location: ./application/controllers/start.php */

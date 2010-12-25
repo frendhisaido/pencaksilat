@@ -11,15 +11,27 @@ class User_model extends Model {
        $this->db->query("insert into user(username,password,email,type) values(\"$username\",\"$password\",\"$email\",\"$type\")");
        }
     
+    function getuser($username){
+      $this->db->select('userid,username,email,type');
+      $this->db->from('user');
+      $this->db->where('username',$username);
+      $query= $this->db->get();
+      return $query;
+    }
+    
     function ceklogin($username,$passwordx){
         $password= md5($passwordx);
-        $query = $this->db->query("select * from user where username like \"$username\" and password like \"$password\"");
+        $this->db->select('username,password');
+        $this->db->from('user');
+        $this->db->like('username',$username);
+        $this->db->like('password',$password);
+        $query= $this->db->get();
         if ($query->num_rows() > 0 ){
+          return true;
            //kalau user ada dan benar  
-           $row = $query->row_array();
-           $type= $row['type'];
-           
-           if($type == "admin"){
+           //$row = $query->row_array();
+           //$type= $row['type'];
+              /*if($type == "admin"){
              //kalau admin, bawa ke halaman admin_panel
              $data= array(
              'userid'   => $row['userid'],
@@ -41,12 +53,11 @@ class User_model extends Model {
              );
              $this->session->set_data($data);
              $this->load->view('homepage');
-           }         
+           }*/         
         } else {
-          $error= "Username/Password salah.";
-          $this->load->view('register',$error);
+          return false;
         }
     }
 }
 /* End of file user_model.php */
-/* Location: ./system/application/controllers/user_model.php */
+/* Location: ./application/models/user_model.php */

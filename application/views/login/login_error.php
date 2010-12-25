@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Pencak Silat.com | User panel.</title>
+<title>Login Error!</title>
 
 <style type="text/css">
 
@@ -42,8 +42,14 @@ code {
 </style>
 </head>
 <body>
-
-<p>Ini user panel.</p>
+<p>
+Username/password yang anda masukkan salah.</p>
+<p>
+<?php echo anchor('login','coba lagi.');?>
+</p>
+<p>
+Belum punya akun? <?php echo anchor('login/register','Daftar sekarang!');?>
+</p>
 
 </body>
 </html>

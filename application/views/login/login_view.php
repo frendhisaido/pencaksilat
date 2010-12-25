@@ -43,9 +43,14 @@ code {
 </head>
 <body>
 <?php $username= $this->session->userdata('username');?>
+<?php 
+if($error = '')
+{}else{
+echo $error;
+}?>
 <h2> <b> Halaman login pencak silat</b> <h2>
 Halo <?php echo $username;?> ! :)
-<form action="<?=base_url();?>login/proseslogin" method="post">
+<form action="<?=base_url();?>index.php/login/proseslogin" method="post">
 <table border="0" align="center">
 <tr>
 <td> Username</td>

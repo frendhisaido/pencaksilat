@@ -35,9 +35,20 @@ class Login extends Controller {
     $this->load->model('user_model');
     $username= $this->input->post('username');
     $password= $this->input->post('password');
-    $this->user_model->ceklogin($username,$password);
+    if ($this->user_model->ceklogin($username,$password) === TRUE){
+      //ambil getuser dari model
+      //cek admin apa user
+      //logic buat nentuin variabel redirect($maudibawakemana)
+      //pasang session  
+      //lempar deh
+      redirect('start/');
+    }else{
+      //$data['error']= "Username/password yang anda masukkan salah.";
+      //$this->load->view('login/login_view',$data);
+      $this->load->view('login/login_error');
+    }
   }
 }
 
 /* End of file login.php */
-/* Location: ./system/application/controllers/login.php */
+/* Location: ./application/controllers/login.php */
