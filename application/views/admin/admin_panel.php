@@ -1,3 +1,10 @@
+<?php
+$userid= $this->session->userdata('userid');
+if(!isset($userid)){
+  redirect('login');
+}
+  $datestring = "%Y-%m-%d %h:%i";
+?>
 <html>
 <head>
 <title>Pencak Silat.com | Admin panel.</title>
@@ -45,7 +52,66 @@ code {
 
 <p>Ini Admin panel.</p>
 <?php
+//link ke halaman utama
 echo anchor('start','Ke halaman utama.');
 ?>
+<br/>
+<?php
+//ini link buat logout
+echo anchor('login/out','logout!');
+?>
+
+<div id="container">
+  <div id="editor">
+    <?php echo form_open('articles/create');?>
+    <p>
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title"/>
+    </p>
+    
+    <p>
+    Date: <?php echo mdate($datestring);?>
+    </p>
+    
+    <p>
+    Content: <br/>
+    <textarea name="content" id="content" cols="50" rows="10">
+    </textarea>
+    </p>
+    
+    <input type="hidden" name="userid" id="userid"
+    values="<?php echo $userid;?>"/>
+    
+    <input type="submit" values="Submit"/>
+    <?php echo form_close();?>
+  
+  </div>
+  <br/>
+  <div id="contents">
+  <h2>
+  Disini contents:
+  </h2>
+  <?php if(isset($konten)) : foreach($konten as $row) : ?>
+      <p>
+          <h3>
+              Title:<?php echo $row->title;?>
+          </h3>
+        <br/>
+              Date: <?php echo $row->postdate;?>
+        <br/>      
+              Content: <?php echo $row->content;?>
+        <br/>
+      </p>
+  <?php endforeach; ?>
+  
+  <?php else:   ?>
+  <h2>Belum ada konten.</h2>
+  <?php endif;?>
+  
+  
+  </div>
+</div>
+
+
 </body>
 </html>

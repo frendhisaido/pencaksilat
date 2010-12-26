@@ -5,7 +5,6 @@ class Login extends Controller {
 	function Login()
 	{
 		parent::Controller();
-    $this->load->helper('url','form');
     $this->load->library('form_validation','session');
     $this->load->model('user_model');	
 	}

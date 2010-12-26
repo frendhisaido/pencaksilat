@@ -29,30 +29,40 @@
       }else{
         echo anchor('login/out','logout!');
       }
-      ?><a>Login</a></li>
+      ?></li>
     </ul>
   </div>
   <div id="page">
     <div id="content">
+    <?php if(isset($konten)) : foreach($konten as $row) : ?>
       <div class="post">
-        <h2 class="title"><a href="#">Welcome to Creevykeel </a></h2>
-        <p class="meta">Posted by <a href="#">Someone</a> on March 10, 2008
+        <h2 class="title"><a href="#"><?php echo $row->title;?></a></h2>
+        <p class="meta">Posted by <a href="#">Someone</a> on <?php echo $row->postdate;?>
           &nbsp;&bull;&nbsp; <a href="#" class="comments">Comments (64)</a> &nbsp;&bull;&nbsp; <a href="#" class="permalink">Full article</a></p>
         <div class="entry">
-          <p><img src="images/img08.jpg" width="143" height="143" alt="" class="alignleft border" />This is <strong>Creevykeel </strong>, a free, fully standards-compliant CSS template designed by FreeCssTemplates<a href="http://www.nodethirtythree.com/"></a> for <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.  The picture in this template is from <a href="#">PDPhoto.org</a>. This free template is released under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attributions 2.5</a> license, so you’re pretty much free to do whatever you want with it (even use it commercially) provided you keep the links in the footer intact. Aside from that, have fun with it :)          </p>
+          <p>
+          <?php echo $row->content;?>
+          </p>
           <p class="clearfix">&nbsp;</p>
         </div>
       </div>
+      
+      <div style="clear: both;">&nbsp;</div>
+      
+      <?php endforeach; ?>
+      <?php else:   ?>
       <div class="post">
-        <h2 class="title"><a href="#">Phasellus pellentesque turpis </a></h2>
-        <p class="meta">Posted by <a href="#">Someone</a> on March 8, 2008
-          &nbsp;&bull;&nbsp; <a href="#" class="comments">Comments (64)</a> &nbsp;&bull;&nbsp; <a href="#" class="permalink">Full article</a></p>
-        <div class="entry">
-          <p><img src="images/img09.jpg" alt="" width="143" height="143" class="alignleft" />Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum vel, tempor at, varius non, purus. Mauris vitae nisl nec metus placerat consectetuer. Donec ipsum. Proin imperdiet est. Pellentesque ornare, orci in consectetuer hendrerit, urna elit eleifend nunc. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum vel, tempor at, varius non, purus. </p>
+        <h2 class="title"><a href="#">Belum ada konten. </a></h2>
+        <p class="meta">Posted by <a href="#">-</a> on -
+         <div class="entry">
+          <p>Konten kosong.</p>
           <p class="clearfix">&nbsp;</p>
         </div>
       </div>
       <div style="clear: both;">&nbsp;</div>
+      <?php endif;?>
+      
+      
     </div>
     <!-- end #content -->
     <div id="sidebar">
@@ -64,13 +74,12 @@
         <li>
           <h2>Berita Harian</h2>
           <ul>
-            <li><a href="#">Aliquam libero</a></li>
-            <li><a href="#">Consectetuer adipiscing elit</a></li>
-            <li><a href="#">Metus aliquam pellentesque</a></li>
-            <li><a href="#">Suspendisse iaculis mauris</a></li>
-            <li><a href="#">Urnanet non molestie semper</a></li>
-
-            <li><a href="#">Proin gravida orci porttitor</a></li>
+          <?php if(isset($konten)) : foreach($konten as $trow) : ?>
+            <li><a href="#"><?php echo $trow->title;?></a></li>
+            <?php endforeach; ?>
+            <?php else:   ?>
+            <li><a href="#">Belum ada konten.</a></li>
+            <?php endif;?>
           </ul>
         </li>
         

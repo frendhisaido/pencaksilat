@@ -5,12 +5,16 @@ class Start extends Controller {
 	function Start()
 	{
 		parent::Controller();
-    $this->load->helper('url');	
+    $this->load->model('articles_model');
 	}
 	
 	function index()
 	{
-		$this->load->view('homepage');
+	  $data= array();
+      if($query= $this->articles_model->getcontents()){
+        $data['konten']= $query;
+      }
+		$this->load->view('homepage',$data);
 	}
   
   function navto(){
