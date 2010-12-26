@@ -7,7 +7,7 @@ class Login extends Controller {
 		parent::Controller();
     $this->load->helper('url','form');
     $this->load->library('form_validation','session');
-    	
+    $this->load->model('user_model');	
 	}
 	
 	function index()
@@ -21,7 +21,6 @@ class Login extends Controller {
   }
   
   function add_user(){
-    $this->load->model('user_model');
     $username= $this->input->post('username');
     $password= $this->input->post('password');
     $email= $this->input->post('email');
@@ -32,22 +31,49 @@ class Login extends Controller {
   }
   
   function proseslogin(){
-    $this->load->model('user_model');
     $username= $this->input->post('username');
-    $password= $this->input->post('password');
+    $password= $this->input->post('password'); 
     if ($this->user_model->ceklogin($username,$password) === TRUE){
-      //ambil getuser dari model
+      //ambil getuser dari model      
+      $getuser=$this->user_model->getuser($username)->row_array();
       //cek admin apa user
-      //logic buat nentuin variabel redirect($maudibawakemana)
-      //pasang session  
-      //lempar deh
-      redirect('start/');
-    }else{
+      
+      $type= $getuser['type'];
+      if ($type == "admin"){
+        //pasang session  
+        $data= array(
+          'userid'  => $getuser['userid'],
+          'username'=> $getuser['username'],
+          'type'    => $type
+        );
+        $this->session->set_userdata($data);
+        //lempar deh
+        redirect('start/navto/admin');
+        //$this->load->view('admin/admin_panel');
+      }else{
+        //pasang session
+        $data= array(
+          'userid'  => $getuser['userid'],
+          'username'=> $getuser['username'],
+          'type'    => $type
+        );
+        $this->session->set_userdata($data);
+        //lempar deh
+        redirect('/start/navto/user');
+        //$this->load->view('homepage');
+      }
+      }else{
       //$data['error']= "Username/password yang anda masukkan salah.";
       //$this->load->view('login/login_view',$data);
       $this->load->view('login/login_error');
     }
   }
+  
+  function out(){
+    $this->session->sess_destroy();
+    redirect('/start');
+  }
+
 }
 
 /* End of file login.php */

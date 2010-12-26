@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Pencak Silat.com | User panel.</title>
+<title>Pencak Silat.com | Admin panel.</title>
 
 <style type="text/css">
 
@@ -43,10 +43,9 @@ code {
 </head>
 <body>
 
-<p>Ini user panel.</p>
+<p>Ini Admin panel.</p>
 <?php
 echo anchor('start','Ke halaman utama.');
 ?>
-
 </body>
 </html>

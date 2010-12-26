@@ -22,7 +22,14 @@
       <li><a href="#" accesskey="3" title="">Gallery</a></li>
       <li><a href="#" accesskey="4" title="">About Us</a></li>
       <li><a href="#" accesskey="5" title="">Contact Us</a></li>
-      <li><?php echo anchor('login','login/signup!');?><a>Login</a></li>
+      <li><?php 
+      $username= $this->session->userdata('username');
+      if($username == ''){
+      echo anchor('login','login/signup!');
+      }else{
+        echo anchor('login/out','logout!');
+      }
+      ?><a>Login</a></li>
     </ul>
   </div>
   <div id="page">

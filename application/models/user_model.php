@@ -13,10 +13,8 @@ class User_model extends Model {
     
     function getuser($username){
       $this->db->select('userid,username,email,type');
-      $this->db->from('user');
-      $this->db->where('username',$username);
-      $query= $this->db->get();
-      return $query;
+      $this->db->like('username',$username);
+      return $this->db->get('user');
     }
     
     function ceklogin($username,$passwordx){
@@ -27,33 +25,7 @@ class User_model extends Model {
         $this->db->like('password',$password);
         $query= $this->db->get();
         if ($query->num_rows() > 0 ){
-          return true;
-           //kalau user ada dan benar  
-           //$row = $query->row_array();
-           //$type= $row['type'];
-              /*if($type == "admin"){
-             //kalau admin, bawa ke halaman admin_panel
-             $data= array(
-             'userid'   => $row['userid'],
-             'username' => $row['username'],
-             'password' => $row['password'],
-             'email'    => $row['email'],
-             'type'     => $type
-             );
-             $this->session->set_data($data);
-             $this->load->view('admin_panel');
-           }else if($type == "user"){
-             //kalau user, bawa ke homepage
-              $data= array(
-             'userid'   => $row['userid'],
-             'username' => $row['username'],
-             'password' => $row['password'],
-             'email'    => $row['email'],
-             'type'     => $type
-             );
-             $this->session->set_data($data);
-             $this->load->view('homepage');
-           }*/         
+          return true;       
         } else {
           return false;
         }
