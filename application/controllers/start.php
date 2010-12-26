@@ -22,7 +22,7 @@ class Start extends Controller {
     if($theview == "user"){
     $this->load->view('user_panel');
     }else{
-      $this->load->view('admin/admin_panel');
+      redirect('/articles');
     }
   }
 }
