@@ -6,6 +6,7 @@ class Articles_model extends Model {
     }
     
     function getcontents(){
+      $this->db->order_by('postdate','desc');
       $query= $this->db->get('news');
       return $query->result();
     }
