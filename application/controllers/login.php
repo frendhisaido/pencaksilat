@@ -26,7 +26,7 @@ class Login extends Controller {
     $this->user_model->add($username,$password,$email);    
     $this->session->set_userdata('username',$username);
     $this->session->set_userdata('email',$email);
-    $this->load->view('homepage');
+    redirect('/start');
   }
   
   function proseslogin(){
