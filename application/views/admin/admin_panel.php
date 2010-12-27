@@ -93,6 +93,11 @@ echo anchor('login/out','logout!');
   </h2>
   <?php if(isset($konten)) : foreach($konten as $row) : ?>
       <p>
+      <?php
+      $iniid= $row->articleid;
+      $edit= array('articles','viewedit',$iniid);
+      $del= array('articles','deletenow',$iniid);
+      ?>
           <h3>
               Title:<?php echo $row->title;?>
           </h3>
@@ -101,6 +106,12 @@ echo anchor('login/out','logout!');
         <br/>      
               Content: <?php echo $row->content;?>
         <br/>
+              <p>
+              <ul>
+              <li><a href="<?php echo site_url($edit);?>">EDIT</a></li>
+              <li><a href="<?php echo site_url($del);?>">DELETE</a></li>
+              </ul>
+              </p>
       </p>
   <?php endforeach; ?>
   

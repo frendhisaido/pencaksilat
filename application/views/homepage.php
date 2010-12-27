@@ -21,24 +21,27 @@
       <li><a href="#" accesskey="2" title="">Event</a></li>
       <li><a href="#" accesskey="3" title="">Gallery</a></li>
       <li><a href="#" accesskey="4" title="">About Us</a></li>
-      <li><a href="#" accesskey="5" title="">Contact Us</a></li>
-      <li><?php 
-      $username= $this->session->userdata('username');
-      if($username == ''){
-      echo anchor('login','login/signup!');
-      }else{
-        echo anchor('login/out','logout!');
+      <li><a href="#" accesskey="5" title="">Contact Us</a></li><?php 
+      $type= $this->session->userdata('type');
+      if($type == ''){
+      echo "<li>".anchor('login','login/signup!')."</li>";
+      }else if($type == 'admin'){                
+        echo "<li>".anchor('login/out','logout!')."</li>";
+        echo "<li>".anchor('articles','panel news')."</li>";
       }
-      ?></li>
+      ?>
     </ul>
   </div>
   <div id="page">
     <div id="content">
     <?php if(isset($konten)) : foreach($konten as $row) : ?>
+    <?php $iniid= $row->articleid;
+          $segments= array('articles','view',$iniid);
+    ?>         
       <div class="post">
-        <h2 class="title"><a href="#"><?php echo $row->title;?></a></h2>
-        <p class="meta">Posted by <a href="#">Someone</a> on <?php echo $row->postdate;?>
-          &nbsp;&bull;&nbsp; <a href="#" class="comments">Comments (64)</a> &nbsp;&bull;&nbsp; <a href="#" class="permalink">Full article</a></p>
+        <h2 class="title"><a href="<?php echo site_url($segments);?>"><?php echo $row->title;?></a></h2>
+        <p class="meta">Posted on <?php echo $row->postdate;?>
+          &nbsp;&bull;&nbsp; <a href="#" class="comments">Comments (64)</a> &nbsp;&bull;&nbsp; <a href="<?php echo site_url($segments);?>">Full article</a></p>
         <div class="entry">
           <p>
           <?php echo $row->content;?>

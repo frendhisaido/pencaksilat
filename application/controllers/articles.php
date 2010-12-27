@@ -17,6 +17,17 @@ class Articles extends Controller {
 		$this->load->view('admin/admin_panel',$data);
 	}
   
+  function view(){
+    //view satu article
+    $id = $this->uri->segment(3);
+    $row= $this->articles_model->getone($id);
+    $data= array(
+      'title'     => $row->title,
+      'content'   => $row->content
+    );   
+    $this->load->view('article_view',$data);
+  }
+  
   function create(){
     $datestring = "%Y-%m-%d %h:%i";
     $time= mdate($datestring);
@@ -28,8 +39,37 @@ class Articles extends Controller {
     );
     
     $this->articles_model->add($data);
-    $this->index();
+    $this->index();  
+  }
+  
+  function viewedit(){
+    $id = $this->uri->segment(3);
+    $row= $this->articles_model->getone($id);
+    $data= array(
+      'articleid' => $id,
+      'title'     => $row->title,
+      'content'   => $row->content,
+    );   
+    $this->load->view('admin/article_edit',$data);
     
+  }
+  
+  function updatenow(){
+    $idarticle= $this->input->post('articleid');
+    $data = array(
+      'title' => $this->input->post('title'),
+      'content' => $this->input->post('content')
+    );
+    
+    $this->articles_model->updatecontent($data, $idarticle);
+    $kesini="/articles/viewedit/".$idarticle;
+    redirect($kesini);
+  }
+  
+  function deletenow(){
+    $id= $this->uri->segment(3);
+    $this->articles_model->deletethis($id);
+    $this->index();
   }
 }
 

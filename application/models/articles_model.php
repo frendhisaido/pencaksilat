@@ -11,10 +11,28 @@ class Articles_model extends Model {
       return $query->result();
     }
     
+    function getone($id){
+      $this->db->where('articleid',$id);
+      $query= $this->db->get('news');
+      return $query->row();
+    }
+    
     function add($data){
       $this->db->insert('news',$data);
       return;
     }
+    
+    function updatecontent($data, $id) 
+  {
+    
+    $this->db->where('articleid',$id);
+    $this->db->update('news', $data);
+  }
+  
+  function deletethis($id){
+    $this->db->where('articleid',$id);
+    $this->db->delete('news');
+  }
     
 }
 /* End of file articles_model.php */

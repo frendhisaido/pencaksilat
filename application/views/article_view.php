@@ -1,6 +1,12 @@
+<?php
+$userid= $this->session->userdata('userid');
+if(!isset($userid)){
+  redirect('login');
+}
+?>
 <html>
 <head>
-<title>Pencak Silat.com | User panel.</title>
+<title>Pencak Silat.com |<?php echo $title;?> .</title>
 
 <style type="text/css">
 
@@ -47,6 +53,21 @@ code {
 <?php
 echo anchor('start','Ke halaman utama.');
 ?>
+<br/>
+<?php 
+      $username= $this->session->userdata('username');
+      if($username == ''){
+      echo anchor('login','login/signup!');
+      }else{
+        echo anchor('login/out','logout!');
+      }
+?>
 
+<p>
+<h2><?php echo $title;?> </h2>
+<p>
+<?php echo $content;?>
+</p>
+</p>
 </body>
 </html>
