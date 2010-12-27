@@ -1,9 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>pendekarupi.com | pencak silat universitas pendidikan indonesia</title>
-<link href="<?php echo base_url();?>css/stylesilat.css" rel="stylesheet" type="text/css" media="all" />
+  <title>pendekarupi.com | pencak silat universitas pendidikan indonesia</title>
+  <link href="<?php echo base_url(); ?>css/stylesilat.css" rel="stylesheet" type="text/css" media="all" />
 
 </head>
 
@@ -101,7 +99,7 @@
   </div>
 </div>
 <div id="footer">
-  <p>Copyright &copy; 2010 TemplateName. Designed by <a href="http://www.freecsstemplates.org/"><strong>CSS Templates</strong></a> | <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional">Valid <abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a></p>
+  Halo <?php echo $username; ?> | <p>Pencak Silat</p>
 </div>
 
 
