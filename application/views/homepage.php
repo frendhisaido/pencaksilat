@@ -99,7 +99,7 @@
   </div>
 </div>
 <div id="footer">
-  Halo <?php echo $username; ?> | <p>Pencak Silat</p>
+  <p>Pencak Silat</p>
 </div>
 
 

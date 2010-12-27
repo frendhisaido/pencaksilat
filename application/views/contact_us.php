@@ -33,11 +33,7 @@
   <div id="page">
     <div id="content">
     
-    <h1>Selamat Datang <?php echo $username; ?></h1>
-    <h2>User Panel</h2>
-    <?php
-      echo anchor('start','Ke halaman utama.');
-    ?>
+    <h1>Contact Us</h1>
       
     </div>
     <!-- end #content -->
