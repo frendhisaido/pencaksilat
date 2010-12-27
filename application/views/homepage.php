@@ -19,8 +19,8 @@
       <li><a href="#" accesskey="2" title="">Event</a></li>
       <li><a href="#" accesskey="3" title="">Gallery</a></li>
       <li><a href="#" accesskey="4" title="">About Us</a></li>
-      <li><a href="#" accesskey="5" title="">Contact Us</a></li><<?php
-
+      <li><a href="#" accesskey="5" title="">Contact Us</a></li>
+      <?php
       $type= $this->session->userdata('type');
       if($type == ''){
       echo   "<li>".anchor('login','login/signup!')."</li>";
@@ -44,7 +44,7 @@
       <div class="post">
         <h2 class="title"><a href="<?php echo site_url($segments);?>"><?php echo $row->title;?></a></h2>
         <p class="meta">Posted on <?php echo $row->postdate;?>
-          &nbsp;&bull;&nbsp; <a href="#" class="comments">Comments (64)</a> &nbsp;&bull;&nbsp; <a href="<?php echo site_url($segments);?>">Full article</a></p>
+          &nbsp;&bull;&nbsp; &nbsp;&bull;&nbsp; <a href="<?php echo site_url($segments);?>">Full article</a></p>
         <div class="entry">
           <p>
           <?php echo $row->content;?>
@@ -67,7 +67,8 @@
       </div>
       <div style="clear: both;">&nbsp;</div>
       <?php endif;?>
-      
+      <?php echo $this->pagination->create_links(); ?>
+
       
     </div>
     <!-- end #content -->

@@ -10,6 +10,12 @@ class Articles_model extends Model {
       $query= $this->db->get('news');
       return $query->result();
     }
+    function get_news($num, $offset) {
+    $this->db->order_by('postdate','desc');        
+    $query = $this->db->get('news', $num, $offset);  
+    return $query->result();
+    }
+    
     
     function getone($id){
       $this->db->where('articleid',$id);

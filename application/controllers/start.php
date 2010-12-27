@@ -10,9 +10,21 @@ class Start extends Controller {
 	
 	function index()
 	{
-	  $data= array();
-      if($query= $this->articles_model->getcontents()){
-        $data['konten']= $query;
+    $data= array();
+    if($query= $this->articles_model->getcontents()){
+	  $this->load->library('pagination');
+    $config['base_url'] = base_url().'index.php/start/index/';
+    $config['first_link'] = 'Awal';
+    $config['last_link'] = 'Akhir';
+    $config['total_rows'] = $this->db->count_all('news');
+    $config['per_page'] = '3';
+
+    $this->pagination->initialize($config);
+    
+    //load the model and get results
+    $this->load->model('articles_model');
+    $data['konten'] = $this->articles_model->get_news($config['per_page'],$this->uri->segment(3));
+    //$data['konten']= $query;
       }
 		$this->load->view('homepage',$data);
 	}
