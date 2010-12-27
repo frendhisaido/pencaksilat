@@ -21,10 +21,12 @@ class Articles extends Controller {
     //view satu article
     $id = $this->uri->segment(3);
     $row= $this->articles_model->getone($id);
-    $data= array(
-      'title'     => $row->title,
-      'content'   => $row->content
-    );   
+    $rowcom= $this->articles_model->getcomments($id);
+    $data['articleid'] = $id;
+    $data['title'] = $row->title;
+    $data['content'] = $row->content;
+    $data['postdate'] = $row->postdate;
+    $data['comments']= $rowcom;   
     $this->load->view('article_view',$data);
   }
   
@@ -71,6 +73,31 @@ class Articles extends Controller {
     $this->articles_model->deletethis($id);
     redirect('articles/');
   }
+  
+  function addcomment(){
+    $datestring = "%Y-%m-%d %h:%i";
+    $time= mdate($datestring);
+    $article= $this->input->post('articleid');
+    $data = array(
+        'userid'    => $this->input->post('userid'),
+        'articleid' => $article,
+        'comment'   => $this->input->post('comment'),
+        'commentdate'  => $time        
+    );
+    
+    $this->articles_model->commentadd($data);
+    $kesini= '/articles/view/'.$article;
+    redirect($kesini);
+  }
+  
+  function deletecomment(){
+     $idcomment = $this->uri->segment(3);
+     $article = $this->uri->segment(4);
+     $this->articles_model->deletecomment($idcomment);
+     $kesini= '/articles/view/'.$article;
+     redirect($kesini);
+  }
+  
 }
 
 /* End of file articles.php */

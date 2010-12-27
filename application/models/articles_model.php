@@ -33,7 +33,25 @@ class Articles_model extends Model {
     $this->db->where('articleid',$id);
     $this->db->delete('news');
   }
-    
+  
+  function commentadd($data){
+    $this->db->insert('comments',$data);
+  }
+  
+  function getcomments($articleid){
+    $this->db->select('username,idcomment,comment,commentdate');
+    $this->db->from('comments');
+    $this->db->join('user','comments.userid = user.userid');
+    $this->db->where('articleid',$articleid);
+    $this->db->order_by('commentdate','desc');
+    $query= $this->db->get();
+    return $query->result();
+  }
+  
+  function deletecomment($id){
+    $this->db->where('idcomment',$id);
+    $this->db->delete('comments');
+  }  
 }
 /* End of file articles_model.php */
 /* Location: ./application/models/articles_model.php */

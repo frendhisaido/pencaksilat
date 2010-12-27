@@ -1,8 +1,7 @@
 <?php
 $userid= $this->session->userdata('userid');
-if(!isset($userid)){
-  redirect('login');
-}
+$username= $this->session->userdata('username');
+
 ?>
 <html>
 <head>
@@ -49,25 +48,83 @@ code {
 </head>
 <body>
 
-<p>Ini user panel.</p>
+<!--navigation disini-->
+<ul>
 <?php
-echo anchor('start','Ke halaman utama.');
-?>
-<br/>
-<?php 
-      $username= $this->session->userdata('username');
-      if($username == ''){
-      echo anchor('login','login/signup!');
-      }else{
-        echo anchor('login/out','logout!');
+echo "<li>".anchor('start','Ke halaman utama.')."</li>";
+      $type= $this->session->userdata('type');
+      if($type == ''){
+      echo   "<li>".anchor('login','login/signup!')."</li>";
+      }else{                
+        echo "<li>".anchor('login/out','logout!')."</li>";
+        if($type == 'admin'){
+        echo "<li>".anchor('articles','panel news')."</li>";
+        }else if($type == 'user'){
+        echo "<li>".anchor('start/navto/user','User Panel')."</li>";  
+        }
       }
 ?>
+</ul>
 
+
+<!--Article muncul disini-->
 <p>
 <h2><?php echo $title;?> </h2>
+Posted at: <strong><?php echo $postdate;?></strong>
 <p>
 <?php echo $content;?>
 </p>
 </p>
+
+
+<!--Form Comment muncul disini-->
+<p>
+<?php if(($userid != '')){?>
+Add Comment:
+<?php 
+ echo form_open('articles/addcomment'); ?>
+ 
+ <input type="hidden" name="userid" id="userid"
+ value="<?php echo $userid;?>" />
+ <input type="hidden" name="articleid" id="articleid"
+ value="<?php echo $articleid;?>" />
+ From: <?php echo $username;?>
+ <br/>
+ Comment:<br/>
+ <textarea name="comment" id="comment" cols="50" rows="10">
+ </textarea>
+ <br/>
+ <input type="submit" value="Comment" />
+ <?php echo form_close();?>
+</p>
+<?php }else{?>
+<p>
+You need to <?php echo anchor('login','login/signup!');?> to comment.
+</p>
+<?php }?>
+
+<!--Comments muncul disini-->
+<p>
+ <?php if(isset($comments)) : foreach($comments as $com) : ?>
+    <p>
+    At <strong><?php echo $com->commentdate;?></strong> ||<strong><?php echo $com->username;?></strong>,say:
+    <p>
+    <?php echo $com->comment;?>
+    </p>
+    <?php
+     $iniid= $com->idcomment;
+     $usrnm= $com->username;
+     if ($usrnm == $username){
+       $del= array('articles','deletecomment',$iniid,$articleid);?>
+    <a href="<?php echo site_url($del);?>">DELETE MY COMMENT.</a>
+    <?php }?>
+    </p>
+ <?php endforeach; ?>
+      <?php else:   ?>
+      <h3>Belum ada komen.</h2>
+      <?php endif;?>
+</p>
+
+
 </body>
 </html>

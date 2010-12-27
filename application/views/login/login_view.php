@@ -70,27 +70,12 @@
           <p>Adalah wadah media informasi pencak silat mahasiswa universitas pendidika indonesia</p>
         </li>
         <li>
-          <h2>Berita Harian</h2>
-          <ul>
-          <?php if(isset($konten)) : foreach($konten as $trow) : ?>
-            <li><a href="#"><?php echo $trow->title;?></a></li>
-            <?php endforeach; ?>
-            <?php else:   ?>
-            <li><a href="#">Belum ada konten.</a></li>
-            <?php endif;?>
-          </ul>
+          
         </li>
         
         
         <li>
-          <h2>Recent Post</h2>
-          <ul>
-            <li><a href="#">Aliquam libero</a></li>
-            <li><a href="#">Consectetuer adipiscing elit</a></li>
-            <li><a href="#">Metus aliquam pellentesque</a></li>
-            <li><a href="#">Urnanet non molestie semper</a></li>
-            <li><a href="#">Proin gravida orci porttitor</a></li>
-          </ul>
+          
         </li>
       </ul>
     </div>

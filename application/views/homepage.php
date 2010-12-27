@@ -19,15 +19,20 @@
       <li><a href="#" accesskey="2" title="">Event</a></li>
       <li><a href="#" accesskey="3" title="">Gallery</a></li>
       <li><a href="#" accesskey="4" title="">About Us</a></li>
-      <li><a href="#" accesskey="5" title="">Contact Us</a></li><?php 
+      <li><a href="#" accesskey="5" title="">Contact Us</a></li><<?php
+
       $type= $this->session->userdata('type');
       if($type == ''){
-      echo "<li>".anchor('login','login/signup!')."</li>";
-      }else if($type == 'admin'){                
+      echo   "<li>".anchor('login','login/signup!')."</li>";
+      }else{                
         echo "<li>".anchor('login/out','logout!')."</li>";
+        if($type == 'admin'){
         echo "<li>".anchor('articles','panel news')."</li>";
+        }else if($type == 'user'){
+        echo "<li>".anchor('start/navto/user','User Panel')."</li>";  
+        }
       }
-      ?>
+?>
     </ul>
   </div>
   <div id="page">

@@ -1,9 +1,11 @@
 <?php
-$userid= $this->session->userdata('userid');
-if(!isset($userid)){
-  redirect('login');
-}
-  $datestring = "%Y-%m-%d %h:%i";
+      $type= $this->session->userdata('type');
+      if(($type == 'user') || ($type == '')){
+        redirect ('/start');
+      }
+        $userid= $this->session->userdata('userid');
+        $username= $this->session->userdata('username');
+        $datestring = "%Y-%m-%d %h:%i";
 ?>
 
 <html>
@@ -21,20 +23,25 @@ if(!isset($userid)){
   </div>
   <div id="menu">
     <ul>
-      <li class="first"><a href="
-      <?php echo site_url('start');?>" accesskey="1" title="">Home</a></li>
+      <li class="first"><?php
+      echo "<li>".anchor('start','Home')."</li>";?></li>
       <li><a href="#" accesskey="2" title="">Event</a></li>
       <li><a href="#" accesskey="3" title="">Gallery</a></li>
       <li><a href="#" accesskey="4" title="">About Us</a></li>
       <li><a href="#" accesskey="5" title="">Contact Us</a></li>
-      <li><?php 
-      $username= $this->session->userdata('username');
-      if($username == ''){
-      echo anchor('login','login/signup!');
-      }else{
-        echo anchor('login/out','logout!');
+      <li><?php
+      $type= $this->session->userdata('type');
+      if($type == ''){
+      echo   "<li>".anchor('login','login/signup!')."</li>";
+      }else{                
+        echo "<li>".anchor('login/out','logout!')."</li>";
+        if($type == 'admin'){
+        echo "<li>".anchor('articles','panel news')."</li>";
+        }else if($type == 'user'){
+        echo "<li>".anchor('start/navto/user','User Panel')."</li>";  
+        }
       }
-      ?></li>
+?></li>
     </ul>
   </div>
   <div id="page">
@@ -45,7 +52,7 @@ if(!isset($userid)){
     <h2>Tambah Konten</h2>
     
     <?php echo form_open('articles/create');?>
-    <input type="hidden" name="userid" id="userid" values="<?php echo $userid;?>"/>
+    <input type="hidden" name="userid" id="userid" value="<?php echo $userid;?>"/>
     
     <table>
       <tr>
