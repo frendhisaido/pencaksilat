@@ -39,7 +39,7 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = "localhost";
 $db['default']['username'] = "root";
-$db['default']['password'] = "lokal789";
+$db['default']['password'] = "";
 $db['default']['database'] = "pencaksilat";
 $db['default']['dbdriver'] = "mysql";
 $db['default']['dbprefix'] = "";
