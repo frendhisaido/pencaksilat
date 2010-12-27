@@ -39,7 +39,7 @@ class Articles extends Controller {
     );
     
     $this->articles_model->add($data);
-    $this->index();  
+    redirect('articles/'); 
   }
   
   function viewedit(){
@@ -69,7 +69,7 @@ class Articles extends Controller {
   function deletenow(){
     $id= $this->uri->segment(3);
     $this->articles_model->deletethis($id);
-    $this->index();
+    redirect('articles/');
   }
 }
 

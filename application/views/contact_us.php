@@ -33,31 +33,7 @@
   <div id="page">
     <div id="content">
     
-      <h1>Silahkan Isikan Data Diri Anda!</h1>
-      <form action="<?php echo site_url();?>/login/add_user" method="POST">
-        <table border="0">
-        <tr>
-          <td>Username</td>
-          <td>: <input name="username" type="text"></td>
-        </tr>
-        <tr>
-          <td>Password</td>
-          <td>: <input name="password" type="password"></td>
-        </tr>
-        <tr>
-          <td>Ulangi Password</td>
-          <td>: <input name="repassword" type="password"/></td>
-        </tr>
-        <tr>
-          <td>Email</td>
-          <td>: <input name="email" type="email"/></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>&nbsp;&nbsp;<input name="submit" type="submit" value="Daftar"> </td>
-        </tr>
-        </table>
-      </form>
+    <h1>Contact Us</h1>
       
     </div>
     <!-- end #content -->

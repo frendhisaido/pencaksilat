@@ -1,55 +1,88 @@
 <html>
 <head>
-<title>Login Error!</title>
+  <title>pendekarupi.com | pencak silat universitas pendidikan indonesia</title>
+  <link href="<?php echo base_url(); ?>css/stylesilat.css" rel="stylesheet" type="text/css" media="all" />
 
-<style type="text/css">
-
-body {
- background-color: #fff;
- margin: 40px;
- font-family: Lucida Grande, Verdana, Sans-serif;
- font-size: 14px;
- color: #4F5155;
-}
-
-a {
- color: #003399;
- background-color: transparent;
- font-weight: normal;
-}
-
-h1 {
- color: #444;
- background-color: transparent;
- border-bottom: 1px solid #D0D0D0;
- font-size: 16px;
- font-weight: bold;
- margin: 24px 0 2px 0;
- padding: 5px 0 6px 0;
-}
-
-code {
- font-family: Monaco, Verdana, Sans-serif;
- font-size: 12px;
- background-color: #f9f9f9;
- border: 1px solid #D0D0D0;
- color: #002166;
- display: block;
- margin: 14px 0 14px 0;
- padding: 12px 10px 12px 10px;
-}
-
-</style>
 </head>
+
 <body>
-<p>
-Username/password yang anda masukkan salah.</p>
-<p>
-<?php echo anchor('login','coba lagi.');?>
-</p>
-<p>
-Belum punya akun? <?php echo anchor('login/register','Daftar sekarang!');?>
-</p>
+<div id="wrapper">
+    <div id="logo">
+      <h1><a href="#">PENCAK SILAT ILKOM UPI</a></h1>
+      <p>Pencak Silat Ilmu Komputer Universitas Pendidikan Indonesia</p>
+    </div>
+  <div id="header">
+  </div>
+  <div id="menu">
+    <ul>
+      <li class="first"><a href="#" accesskey="1" title="">Home</a></li>
+      <li><a href="#" accesskey="2" title="">Event</a></li>
+      <li><a href="#" accesskey="3" title="">Gallery</a></li>
+      <li><a href="#" accesskey="4" title="">About Us</a></li>
+      <li><a href="#" accesskey="5" title="">Contact Us</a></li>
+      <li><?php 
+      $username= $this->session->userdata('username');
+      if($username == ''){
+      echo anchor('login','login/signup!');
+      }else{
+        echo anchor('login/out','logout!');
+      }
+      ?></li>
+    </ul>
+  </div>
+  <div id="page">
+    <div id="content">
+    
+    <h1>Username/password yang anda masukkan salah.</h1>
+    
+    <p>
+    <?php echo anchor('login','coba lagi.');?>
+    </p>
+    <p>
+    Belum punya akun? <?php echo anchor('login/register','Daftar sekarang!');?>
+    </p>
+      
+    </div>
+    <!-- end #content -->
+    <div id="sidebar">
+      <ul>
+        <li>
+          <h2>pendekarupi.com</h2>
+          <p>Adalah wadah media informasi pencak silat mahasiswa universitas pendidika indonesia</p>
+        </li>
+        <li>
+          <h2>Berita Harian</h2>
+          <ul>
+          <?php if(isset($konten)) : foreach($konten as $trow) : ?>
+            <li><a href="#"><?php echo $trow->title;?></a></li>
+            <?php endforeach; ?>
+            <?php else:   ?>
+            <li><a href="#">Belum ada konten.</a></li>
+            <?php endif;?>
+          </ul>
+        </li>
+        
+        
+        <li>
+          <h2>Recent Post</h2>
+          <ul>
+            <li><a href="#">Aliquam libero</a></li>
+            <li><a href="#">Consectetuer adipiscing elit</a></li>
+            <li><a href="#">Metus aliquam pellentesque</a></li>
+            <li><a href="#">Urnanet non molestie semper</a></li>
+            <li><a href="#">Proin gravida orci porttitor</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- end #sidebar -->
+    <div style="clear: both;">&nbsp;</div>
+  </div>
+</div>
+<div id="footer">
+  <p>Pencak Silat</p>
+</div>
+
 
 </body>
 </html>
