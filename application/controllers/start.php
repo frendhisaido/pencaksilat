@@ -29,7 +29,7 @@ class Start extends Controller {
 		$this->load->view('homepage',$data);
 	}
   
-  function navto(){
+  function navto() {
     $theview = $this->uri->segment(3);
     if($theview == "user"){
     $this->load->view('user_panel');
@@ -37,6 +37,29 @@ class Start extends Controller {
       redirect('/articles');
     }
   }
+  
+  // functions for navigation
+  function c_event() {
+     parent::Controller();
+     $this->load->view('event');
+  }
+  
+  function c_gallery() {
+     parent::Controller();
+     $this->load->view('gallery');
+  }
+  
+  function c_about_us() {
+     parent::Controller();
+     $this->load->view('about_us');
+  }
+
+  function c_contact_us() {
+     parent::Controller();
+     $this->load->view('contact_us');
+  }
+  
+  
 }
 
 /* End of file start.php */

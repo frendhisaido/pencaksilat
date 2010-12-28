@@ -16,10 +16,10 @@
   <div id="menu">
     <ul>
       <li class="first"><?php echo anchor('start','Home'); ?></li>
-      <li><?php echo anchor('c_event/','Event'); ?></li>
-      <li><?php echo anchor('c_gallery/','Gallery'); ?></li>
-      <li><?php echo anchor('c_about_us/','About'); ?></li>
-      <li><?php echo anchor('c_contact_us/','Contact Us'); ?></li>
+      <li><?php echo anchor('start/c_event/','Event'); ?></li>
+      <li><?php echo anchor('start/c_gallery/','Gallery'); ?></li>
+      <li><?php echo anchor('start/c_about_us/','About'); ?></li>
+      <li><?php echo anchor('start/c_contact_us/','Contact Us'); ?></li>
       <?php
       $username= $this->session->userdata('username');
       $type= $this->session->userdata('type');
