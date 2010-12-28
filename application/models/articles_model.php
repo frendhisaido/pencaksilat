@@ -1,7 +1,7 @@
 <?php
-class Articles_model extends Model {
+class articles_model extends Model {
 
-    function Articles_model(){
+    function articles_model(){
         parent:: Model();
     }
     
@@ -54,10 +54,18 @@ class Articles_model extends Model {
     return $query->result();
   }
   
-  function deletecomment($id){
+  function deletecomment($id) {
     $this->db->where('idcomment',$id);
     $this->db->delete('comments');
-  }  
+  }
+
+  function gettitles() {
+    $this->db->select('articleid,title,postdate');
+    $this->db->order_by('postdate','desc');
+    $query= $this->db->get('news');
+    return $query->result();
+  }
+
 }
 /* End of file articles_model.php */
 /* Location: ./application/models/articles_model.php */

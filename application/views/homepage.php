@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>pendekarupi.com | pencak silat universitas pendidikan indonesia</title>
+  <title>Pencak Silat Ilkom UPI</title>
   <link href="<?php echo base_url(); ?>css/stylesilat.css" rel="stylesheet" type="text/css" media="all" />
 
 </head>
@@ -83,7 +83,7 @@
           <h2>Berita Harian</h2>
           <ul>
           <?php if(isset($konten)) : foreach($konten as $trow) : ?>
-            <li><a href="#"><?php echo $trow->title;?></a></li>
+            <li><a href="#"><?php echo $trow->title; ?></a></li>
             <?php endforeach; ?>
             <?php else:   ?>
             <li><a href="#">Belum ada konten.</a></li>

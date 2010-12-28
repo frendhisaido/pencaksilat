@@ -59,6 +59,15 @@ class Start extends Controller {
      $this->load->view('contact_us');
   }
   
+  function c_tittle() {
+   $data=array();
+    if($query = $this->articles_model->getcontents()){
+      $data['konten'] = $query;
+      $data['titles'] = $this->articles_model->gettitles();
+
+    }
+  $this->load->view('admin/admin_panel/',$data);
+  }
   
 }
 

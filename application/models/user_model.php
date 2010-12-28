@@ -1,7 +1,7 @@
 <?php
-class User_model extends Model {
+class user_model extends Model {
 
-    function User_model(){
+    function user_model(){
         parent:: Model();
     }
 

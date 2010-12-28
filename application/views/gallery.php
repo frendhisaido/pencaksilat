@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>pendekarupi.com | pencak silat universitas pendidikan indonesia</title>
+  <title>Pencak Silat Ilkom UPI</title>
   <link href="<?php echo base_url(); ?>css/stylesilat.css" rel="stylesheet" type="text/css" media="all" />
   
   <!-- <link href="<?php echo base_url(); ?>css/demo.css" rel="stylesheet" type="text/css" media="all" /> -->
