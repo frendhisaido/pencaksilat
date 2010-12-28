@@ -59,12 +59,12 @@ class articles_model extends Model {
     $this->db->delete('comments');
   }
 
-  function gettitles() {
+  /* function gettitles() {
     $this->db->select('articleid,title,postdate');
     $this->db->order_by('postdate','desc');
     $query= $this->db->get('news');
     return $query->result();
-  }
+  } */
 
 }
 /* End of file articles_model.php */

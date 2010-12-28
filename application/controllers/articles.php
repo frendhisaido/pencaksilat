@@ -1,8 +1,8 @@
 <?php
 
-class Articles extends Controller {
+class articles extends Controller {
 
-	function Articles()
+	function articles()
 	{
 		parent::Controller();
     $this->load->model('articles_model');

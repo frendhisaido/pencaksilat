@@ -1,8 +1,8 @@
 <?php
 
-class Login extends Controller {
+class login extends Controller {
 
-	function Login()
+	function login()
 	{
 		parent::Controller();
     $this->load->library('form_validation','session');

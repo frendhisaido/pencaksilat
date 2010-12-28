@@ -3,26 +3,6 @@
   <title>Pencak Silat Ilkom UPI</title>
   <link href="<?php echo base_url(); ?>css/stylesilat.css" rel="stylesheet" type="text/css" media="all" />
   
-  <!-- <link href="<?php echo base_url(); ?>css/demo.css" rel="stylesheet" type="text/css" media="all" /> -->
-  <link href="<?php echo base_url(); ?>css/jquery.superbox.css" rel="stylesheet" type="text/css" media="all" />
-  
-  <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.superbox.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.superbox-min.js"></script>
-  <script type="text/javascript">
-    $(function(){
-      $.superbox.settings = {
-        closeTxt: "Close",
-        loadTxt: "Loading...",
-        nextTxt: "Next",
-        prevTxt: "Previous"
-      };
-      $.superbox();
-    });
-  </script>
-  <script type="text/javascript">
-    
-  </script>
-  
 </head>
 
 <body>

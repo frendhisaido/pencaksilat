@@ -1,8 +1,8 @@
 <?php
 
-class Start extends Controller {
+class start extends Controller {
 
-	function Start()
+	function start()
 	{
 		parent::Controller();
     $this->load->model('articles_model');
@@ -59,7 +59,7 @@ class Start extends Controller {
      $this->load->view('contact_us');
   }
   
-  function c_tittle() {
+  /* function c_tittle() {
    $data=array();
     if($query = $this->articles_model->getcontents()){
       $data['konten'] = $query;
@@ -67,7 +67,7 @@ class Start extends Controller {
 
     }
   $this->load->view('admin/admin_panel/',$data);
-  }
+  } */
   
 }
 
