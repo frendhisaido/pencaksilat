@@ -23,6 +23,8 @@ p, ol, ul {
 
 p {
 	line-height: 170%;
+	text-indent: 35px;
+	text-align:justify;
 }
 
 ul {

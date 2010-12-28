@@ -15,33 +15,58 @@
   </div>
   <div id="menu">
     <ul>
-      <li class="first"><a href="#" accesskey="1" title="">Home</a></li>
-      <li><a href="#" accesskey="2" title="">Event</a></li>
-      <li><a href="#" accesskey="3" title="">Gallery</a></li>
-      <li><a href="#" accesskey="4" title="">About Us</a></li>
-      <li><a href="#" accesskey="5" title="">Contact Us</a></li>
-      <li><?php 
-      $username= $this->session->userdata('username');
-      if($username == ''){
-      echo anchor('login','login/signup!');
-      }else{
-        echo anchor('login/out','logout!');
+      <li class="first"><?php echo anchor('start','Home'); ?></li>
+      <li><?php echo anchor('c_event/','Event'); ?></li>
+      <li><?php echo anchor('c_gallery/','Gallery'); ?></li>
+      <li><?php echo anchor('c_about_us/','About'); ?></li>
+      <li><?php echo anchor('c_contact_us/','Contact Us'); ?></li>
+      <?php
+      $type= $this->session->userdata('type');
+      if($type == ''){
+      echo   "<li>".anchor('login','login/signup!')."</li>";
+      }else{                
+        echo "<li>".anchor('login/out','logout!')."</li>";
+        if($type == 'admin'){
+        echo "<li>".anchor('articles','panel news')."</li>";
+        }else if($type == 'user'){
+        echo "<li>".anchor('start/navto/user','User Panel')."</li>";  
+        }
       }
-      ?></li>
+?>
     </ul>
   </div>
   <div id="page">
     <div id="content">
-    
-    <h1>Contact Us</h1>
+      <h1>Contact Us</h1>
+      
+      <h2>Universitas Pendidikan Indonesia</h2>
+      <p>Jl. Dr. Setiabudi No. 229 Bandung 40154
+      Telepon : 022-2001197, 2002320, 2013163</p>
+      
+      <p>Faksimile : 022-2005090</p>
+      <p>E-mail : bang.ghost@gmail.com</p>
+      <p>Website : http://chibum.com</p>
+      
+      <p><a href="ymsgr:sendIM?alfins26">
+      <img border="0" src="<?php echo base_url(); ?>image/online.gif">
+      </a>
+      
+      <a href="ymsgr:sendIM?nevercr4i_dude">
+      <img border="0" src="<?php echo base_url(); ?>image/online.gif">
+      </a>
+      
+      <a href="ymsgr:sendIM?chen_kromatik_25">
+      <img border="0" src="<?php echo base_url(); ?>image/online.gif">
+      </a></p>
       
     </div>
     <!-- end #content -->
     <div id="sidebar">
       <ul>
         <li>
-          <h2>pendekarupi.com</h2>
-          <p>Adalah wadah media informasi pencak silat mahasiswa universitas pendidika indonesia</p>
+          <h2>Pencak Silat Ilkom UPI</h2>
+          <p>Merupakan sarana bagi para penikmat pencak silat di universitas pendidikan indonesia,
+          khususnya jurusan ilmu komputer.</p>
         </li>
         <li>
           <h2>Berita Harian</h2>
@@ -52,18 +77,6 @@
             <?php else:   ?>
             <li><a href="#">Belum ada konten.</a></li>
             <?php endif;?>
-          </ul>
-        </li>
-        
-        
-        <li>
-          <h2>Recent Post</h2>
-          <ul>
-            <li><a href="#">Aliquam libero</a></li>
-            <li><a href="#">Consectetuer adipiscing elit</a></li>
-            <li><a href="#">Metus aliquam pellentesque</a></li>
-            <li><a href="#">Urnanet non molestie semper</a></li>
-            <li><a href="#">Proin gravida orci porttitor</a></li>
           </ul>
         </li>
       </ul>

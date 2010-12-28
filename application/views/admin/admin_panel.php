@@ -23,13 +23,12 @@
   </div>
   <div id="menu">
     <ul>
-      <li class="first"><?php
-      echo "<li>".anchor('start','Home')."</li>";?></li>
-      <li><a href="#" accesskey="2" title="">Event</a></li>
-      <li><a href="#" accesskey="3" title="">Gallery</a></li>
-      <li><a href="#" accesskey="4" title="">About Us</a></li>
-      <li><a href="#" accesskey="5" title="">Contact Us</a></li>
-      <li><?php
+      <li class="first"><?php echo anchor('start','Home'); ?></li>
+      <li><?php echo anchor('c_event/','Event'); ?></li>
+      <li><?php echo anchor('c_gallery/','Gallery'); ?></li>
+      <li><?php echo anchor('c_about_us/','About'); ?></li>
+      <li><?php echo anchor('c_contact_us/','Contact Us'); ?></li>
+      <?php
       $type= $this->session->userdata('type');
       if($type == ''){
       echo   "<li>".anchor('login','login/signup!')."</li>";
@@ -41,7 +40,8 @@
         echo "<li>".anchor('start/navto/user','User Panel')."</li>";  
         }
       }
-?></li>
+      ?>
+      
     </ul>
   </div>
   <div id="page">

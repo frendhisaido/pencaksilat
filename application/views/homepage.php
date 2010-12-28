@@ -15,11 +15,11 @@
   </div>
   <div id="menu">
     <ul>
-      <li class="first"><a href="#" accesskey="1" title="">Home</a></li>
-      <li><a href="#" accesskey="2" title="">Event</a></li>
-      <li><a href="#" accesskey="3" title="">Gallery</a></li>
-      <li><a href="#" accesskey="4" title="">About Us</a></li>
-      <li><a href="#" accesskey="5" title="">Contact Us</a></li>
+      <li class="first"><?php echo anchor('start','Home'); ?></li>
+      <li><?php echo anchor('c_event/','Event'); ?></li>
+      <li><?php echo anchor('c_gallery/','Gallery'); ?></li>
+      <li><?php echo anchor('c_about_us/','About'); ?></li>
+      <li><?php echo anchor('c_contact_us/','Contact Us'); ?></li>
       <?php
       $type= $this->session->userdata('type');
       if($type == ''){
@@ -75,8 +75,9 @@
     <div id="sidebar">
       <ul>
         <li>
-          <h2>pendekarupi.com</h2>
-          <p>Adalah wadah media informasi pencak silat mahasiswa universitas pendidika indonesia</p>
+          <h2>Pencak Silat Ilkom UPI</h2>
+          <p>Merupakan sarana bagi para penikmat pencak silat di universitas pendidikan indonesia,
+          khususnya jurusan ilmu komputer.</p>
         </li>
         <li>
           <h2>Berita Harian</h2>
@@ -87,18 +88,6 @@
             <?php else:   ?>
             <li><a href="#">Belum ada konten.</a></li>
             <?php endif;?>
-          </ul>
-        </li>
-        
-        
-        <li>
-          <h2>Recent Post</h2>
-          <ul>
-            <li><a href="#">Aliquam libero</a></li>
-            <li><a href="#">Consectetuer adipiscing elit</a></li>
-            <li><a href="#">Metus aliquam pellentesque</a></li>
-            <li><a href="#">Urnanet non molestie semper</a></li>
-            <li><a href="#">Proin gravida orci porttitor</a></li>
           </ul>
         </li>
       </ul>

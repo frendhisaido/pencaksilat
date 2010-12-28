@@ -3,55 +3,50 @@ $userid= $this->session->userdata('userid');
 $username= $this->session->userdata('username');
 
 ?>
+
 <html>
 <head>
-<title>Pencak Silat.com |<?php echo $title;?> .</title>
-
-<style type="text/css">
-
-body {
- background-color: #fff;
- margin: 40px;
- font-family: Lucida Grande, Verdana, Sans-serif;
- font-size: 14px;
- color: #4F5155;
-}
-
-a {
- color: #003399;
- background-color: transparent;
- font-weight: normal;
-}
-
-h1 {
- color: #444;
- background-color: transparent;
- border-bottom: 1px solid #D0D0D0;
- font-size: 16px;
- font-weight: bold;
- margin: 24px 0 2px 0;
- padding: 5px 0 6px 0;
-}
-
-code {
- font-family: Monaco, Verdana, Sans-serif;
- font-size: 12px;
- background-color: #f9f9f9;
- border: 1px solid #D0D0D0;
- color: #002166;
- display: block;
- margin: 14px 0 14px 0;
- padding: 12px 10px 12px 10px;
-}
-
-</style>
+  <title>pendekarupi.com | pencak silat universitas pendidikan indonesia</title>
+  <link href="<?php echo base_url(); ?>css/stylesilat.css" rel="stylesheet" type="text/css" media="all" />
+  
+  <!-- <link href="<?php echo base_url(); ?>css/demo.css" rel="stylesheet" type="text/css" media="all" /> -->
+  <link href="<?php echo base_url(); ?>css/jquery.superbox.css" rel="stylesheet" type="text/css" media="all" />
+  
+  <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.superbox.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.superbox-min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $.superbox.settings = {
+        closeTxt: "Close",
+        loadTxt: "Loading...",
+        nextTxt: "Next",
+        prevTxt: "Previous"
+      };
+      $.superbox();
+    });
+  </script>
+  <script type="text/javascript">
+    
+  </script>
+  
 </head>
-<body>
 
-<!--navigation disini-->
-<ul>
-<?php
-echo "<li>".anchor('start','Ke halaman utama.')."</li>";
+<body>
+<div id="wrapper">
+    <div id="logo">
+      <h1><a href="#">PENCAK SILAT ILKOM UPI</a></h1>
+      <p>Pencak Silat Ilmu Komputer Universitas Pendidikan Indonesia</p>
+    </div>
+  <div id="header">
+  </div>
+  <div id="menu">
+    <ul>
+      <li class="first"><?php echo anchor('start','Home'); ?></li>
+      <li><?php echo anchor('c_event/','Event'); ?></li>
+      <li><?php echo anchor('c_gallery/','Gallery'); ?></li>
+      <li><?php echo anchor('c_about_us/','About'); ?></li>
+      <li><?php echo anchor('c_contact_us/','Contact Us'); ?></li>
+      <?php
       $type= $this->session->userdata('type');
       if($type == ''){
       echo   "<li>".anchor('login','login/signup!')."</li>";
@@ -64,66 +59,100 @@ echo "<li>".anchor('start','Ke halaman utama.')."</li>";
         }
       }
 ?>
-</ul>
-
-
-<!--Article muncul disini-->
-<p>
-<h2><?php echo $title;?> </h2>
-Posted at: <strong><?php echo $postdate;?></strong>
-<p>
-<?php echo $content;?>
-</p>
-</p>
-
-
-<!--Form Comment muncul disini-->
-<p>
-<?php if(($userid != '')){?>
-Add Comment:
-<?php 
- echo form_open('articles/addcomment'); ?>
- 
- <input type="hidden" name="userid" id="userid"
- value="<?php echo $userid;?>" />
- <input type="hidden" name="articleid" id="articleid"
- value="<?php echo $articleid;?>" />
- From: <?php echo $username;?>
- <br/>
- Comment:<br/>
- <textarea name="comment" id="comment" cols="50" rows="10">
- </textarea>
- <br/>
- <input type="submit" value="Comment" />
- <?php echo form_close();?>
-</p>
-<?php }else{?>
-<p>
-You need to <?php echo anchor('login','login/signup!');?> to comment.
-</p>
-<?php }?>
-
-<!--Comments muncul disini-->
-<p>
- <?php if(isset($comments)) : foreach($comments as $com) : ?>
-    <p>
-    At <strong><?php echo $com->commentdate;?></strong> ||<strong><?php echo $com->username;?></strong>,say:
-    <p>
-    <?php echo $com->comment;?>
-    </p>
-    <?php
-     $iniid= $com->idcomment;
-     $usrnm= $com->username;
-     if ($usrnm == $username){
-       $del= array('articles','deletecomment',$iniid,$articleid);?>
-    <a href="<?php echo site_url($del);?>">DELETE MY COMMENT.</a>
-    <?php }?>
-    </p>
- <?php endforeach; ?>
-      <?php else:   ?>
-      <h3>Belum ada komen.</h2>
-      <?php endif;?>
-</p>
+    </ul>
+  </div>
+  <div id="page">
+      <div id="content">
+        <h1>Tambah Comment</h1>
+        
+        <!--Article muncul disini-->
+      <p>
+      <h2><?php echo $title;?> </h2>
+      Posted at : <strong><?php echo $postdate;?></strong>
+      <p>
+      <?php echo $content;?>
+      </p>
+      </p>
+      
+      
+      <!--Form Comment muncul disini-->
+      <p>
+      <?php if(($userid != '')){?>
+      <b>Add Comment</b> :
+      <?php 
+       echo form_open('articles/addcomment'); ?>
+       
+       <input type="hidden" name="userid" id="userid"
+       value="<?php echo $userid;?>" />
+       <input type="hidden" name="articleid" id="articleid"
+       value="<?php echo $articleid;?>" />
+       
+       From : <b><?php echo $username; ?></b>
+       <br/>
+       Comment :<br/>
+       <textarea name="comment" id="comment" cols="50" rows="10">
+       </textarea>
+       <br/>
+       <input type="submit" value="Comment" />
+       <?php echo form_close();?>
+      </p>
+      <?php }else{?>
+      <p>
+      You need to <?php echo anchor('login','login/signup!');?> to comment.
+      </p>
+      <?php }?>
+      
+      <!--Comments muncul disini-->
+      <p>
+       <?php if(isset($comments)) : foreach($comments as $com) : ?>
+          <p>
+          At <strong><?php echo $com->commentdate;?></strong> || <strong><?php echo $com->username;?></strong>,say:
+          <p>
+          <?php echo $com->comment;?>
+          </p>
+          <?php
+           $iniid= $com->idcomment;
+           $usrnm= $com->username;
+           if ($usrnm == $username){
+             $del= array('articles','deletecomment',$iniid,$articleid);?>
+          <a href="<?php echo site_url($del);?>">DELETE COMMENT.</a>
+          <?php }?>
+          </p>
+       <?php endforeach; ?>
+            <?php else:   ?>
+            <h3>Belum ada komen.</h2>
+            <?php endif;?>
+      </p>
+        
+      </div>
+    <!-- end #content -->
+    <div id="sidebar">
+      <ul>
+        <li>
+          <h2>Pencak Silat Ilkom UPI</h2>
+          <p>Merupakan sarana bagi para penikmat pencak silat di universitas pendidikan indonesia,
+          khususnya jurusan ilmu komputer.</p>
+        </li>
+        <li>
+          <h2>Berita Harian</h2>
+          <ul>
+          <?php if(isset($konten)) : foreach($konten as $trow) : ?>
+            <li><a href="#"><?php echo $trow->title;?></a></li>
+            <?php endforeach; ?>
+            <?php else:   ?>
+            <li><a href="#">Belum ada konten.</a></li>
+            <?php endif;?>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- end #sidebar -->
+    <div style="clear: both;">&nbsp;</div>
+  </div>
+</div>
+<div id="footer">
+  <p>Pencak Silat</p>
+</div>
 
 
 </body>
