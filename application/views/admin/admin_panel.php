@@ -56,19 +56,19 @@
     
     <table>
       <tr>
-        <td>Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo mdate($datestring); ?></td>
+        <td><b>Date</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo mdate($datestring); ?></td>
       </tr>
       <tr>
-        <td>Title &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="text" name="title" size="50" id="title"/></td>
+        <td><b>Title</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="text" name="title" size="50" id="title"/></td>
       </tr>
       <tr>
-        <td>Content &nbsp;:</td>
+        <td><b>Content</b> &nbsp;:</td>
       </tr
       <tr>
         <td><textarea name="content" id="content" cols="50" rows="10"></textarea></td>
       </tr>
       <tr>
-        <td><input type="submit" value="Submit"/></td>
+        <td><input type="submit" value="Tambah"/></td>
       </tr>
     </table>
     
@@ -77,9 +77,7 @@
   <br/>
   
   <div id="contents">
-  <h2>
-  Disini contents:
-  </h2>
+  <h2>Daftar Konten</h2>
   <?php if(isset($konten)) : foreach($konten as $row) : ?>
       <p>
       <?php
@@ -88,12 +86,12 @@
       $del= array('articles','deletenow',$iniid);
       ?>
           <h2>
-              Title: <h3><?php echo $row->title;?></h3>
+              <b>Title</b> : <h3><?php echo $row->title;?></h3>
           </h2>
         <br/>
-              <strong>Date:</strong> <?php echo $row->postdate;?>
+              <strong>Date : </strong> <?php echo $row->postdate;?>
         <br/>      
-              <strong>Content:</strong> <?php echo $row->content;?>
+              <strong>Content : </strong> <?php echo $row->content;?>
         <br/>
               <p>
               <ul>
@@ -111,15 +109,13 @@
     </div>
     <!-- end #content -->
     <div id="sidebar">
-      <h2>Disini Konten(??)</h2>
-      INI BUAT APA?
       
     <!-- end #sidebar -->
     <div style="clear: both;">&nbsp;</div>
   </div>
 </div>
 <div id="footer">
-  
+  <p>Pencak Silat</p>
 </div>
 
 

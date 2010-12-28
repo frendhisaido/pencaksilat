@@ -68,17 +68,7 @@
           <p>Merupakan sarana bagi para penikmat pencak silat di universitas pendidikan indonesia,
           khususnya jurusan ilmu komputer.</p>
         </li>
-        <li>
-          <h2>Berita Harian</h2>
-          <ul>
-          <?php if(isset($konten)) : foreach($konten as $trow) : ?>
-            <li><a href="#"><?php echo $trow->title;?></a></li>
-            <?php endforeach; ?>
-            <?php else:   ?>
-            <li><a href="#">Belum ada konten.</a></li>
-            <?php endif;?>
-          </ul>
-        </li>
+        
       </ul>
     </div>
     <!-- end #sidebar -->
